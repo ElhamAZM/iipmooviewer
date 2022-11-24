@@ -346,6 +346,47 @@ iipmooviewer.menu( [ ['color.tif','color'],
                      ['ir.tif','infra-red'],
                      ['xray.tif','X-ray']
                    ] );
+		   
+		   
+		   
+		   
+		   
+
+# Create a directory for the iipsrv binary
+ScriptAlias /iipsrv/ "/usr/lib/iipimage-server/"
+
+# Set the options on that directory
+<Location "/iipsrv/">
+   AllowOverride None
+   Options None
+   <IfModule mod_version.c>
+     <IfVersion < 2.4>
+       Order allow,deny
+       Allow from all
+     </IfVersion>
+     <IfVersion >= 2.4>
+       Require all granted
+     </IfVersion>
+   </IfModule>
+
+   # Set the module handler
+   AddHandler fcgid-script .fcgi
+</Location>
+
+# Set our environment variables for the IIP server
+FcgidInitialEnv VERBOSITY "1"
+FcgidInitialEnv LOGFILE "/var/log/iipsrv.log"
+FcgidInitialEnv MAX_IMAGE_CACHE_SIZE "10"
+FcgidInitialEnv JPEG_QUALITY "90"
+FcgidInitialEnv MAX_CVT "5000"
+FcgidInitialEnv MEMCACHED_SERVERS "localhost"
+FcgidInitialEnv CORS *
+# Define the idle timeout as unlimited and the number of
+# processes we want
+FcgidIdleTimeout 0
+FcgidMaxProcessesPerClass 1
+
+		   
 </pre>
 
 
