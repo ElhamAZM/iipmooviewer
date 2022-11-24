@@ -33,41 +33,6 @@ Server
 You first must have a working version of the IIPImage server running if you want to use the IIP protocol and features. See http://iipimage.sourceforge.net for details. IIPMooViewer, however, also supports the IIIF protocol if you have an IIIF server, or the Zoomify and Deepzoom protocols if you are unable to install the server or are working in a legacy environment.
 
 
-# Create a directory for the iipsrv binary
-ScriptAlias /iipsrv/ "/usr/lib/iipimage-server/"
-
-# Set the options on that directory
-<Location "/iipsrv/">
-   AllowOverride None
-   Options None
-   <IfModule mod_version.c>
-     <IfVersion < 2.4>
-       Order allow,deny
-       Allow from all
-     </IfVersion>
-     <IfVersion >= 2.4>
-       Require all granted
-     </IfVersion>
-   </IfModule>
-
-   # Set the module handler
-   AddHandler fcgid-script .fcgi
-</Location>
-
-# Set our environment variables for the IIP server
-FcgidInitialEnv VERBOSITY "1"
-FcgidInitialEnv LOGFILE "/var/log/iipsrv.log"
-FcgidInitialEnv MAX_IMAGE_CACHE_SIZE "10"
-FcgidInitialEnv JPEG_QUALITY "90"
-FcgidInitialEnv MAX_CVT "5000"
-FcgidInitialEnv MEMCACHED_SERVERS "localhost"
-FcgidInitialEnv CORS *
-# Define the idle timeout as unlimited and the number of
-# processes we want
-FcgidIdleTimeout 0
-FcgidMaxProcessesPerClass 1
-
-
 Images
 ------
 Create a pyramidal tiled TIFF image using VIPS (http://vips.sf.net) or imagemagick. Or JPEG2000 if you have a JPEG2000 enabled IIPImage server.
