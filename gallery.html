@@ -1,79 +1,92 @@
 <!DOCTYPE html>
-<html lang="en">
+<!this is the example of van goh(the one that worked) coming from it's demo code from the website, not the github code>
+<html lang="en" >
 
  <head>
   <meta charset="utf-8" />
-  <meta name="DC.creator" content="Ruven Pillay &lt;ruven@users.sourceforge.netm&gt;"/>
-  <meta name="DC.title" content="IIPMooViewer: High Resolution Gallery Viewer"/>
-  <meta name="DC.subject" content="IIPMooViewer; IIPImage; Visualization; HTML5; Ajax; High Resolution; Internet Imaging Protocol; IIP"/>
-  <meta name="DC.description" content="IIPMooViewer is an advanced javascript HTML5 image viewer for streaming high resolution scientific images"/>
-  <meta name="DC.rights" content="Copyright &copy; 2003-2016 Ruven Pillay"/>
-  <meta name="DC.source" content="http://iipimage.sourceforge.net"/>
+  <meta name="author" content="Ruven Pillay &lt;ruven@users.sourceforge.netm&gt;" />
+  <meta name="keywords" content="Multispectral Internet Imaging Protocol IIP IIPImage Mootools" />
+  <meta name="description" content="High Resolution Remote Viewing of Multispectral Images" />
+  <meta name="copyright" content="&copy; 2003-2015 Ruven Pillay" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0" />
   <meta name="apple-mobile-web-app-capable" content="yes" />
   <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
   <meta http-equiv="X-UA-Compatible" content="IE=9" />
 
   <link rel="stylesheet" type="text/css" media="all" href="css/iip.min.css" />
-  <link rel="stylesheet" type="text/css" media="all" href="css/gallery.min.css" />
+
 <!--[if lt IE 10]>
-  <meta http-equiv="X-UA-Compatible" content="IE=9" >
   <link rel="stylesheet" type="text/css" media="all" href="css/ie.min.css" />
 <![endif]-->
-
-  <link rel="shortcut icon" href="images/iip-favicon.png" />
-  <link rel="apple-touch-icon" href="images/iip.png" />
-
-  <title>IIPMooViewer :: IIPImage High Resolution Gallery Viewer</title>
-
-  <script src="//ajax.googleapis.com/ajax/libs/mootools/1.6.0/mootools.min.js"></script>
-  <script src="js/iipmooviewer-2.0-min.js"></script>
-  <script src="js/gallery.min.js"></script>
-
-<!--[if lt IE 7]>
-  <script src="http://ie7-js.googlecode.com/svn/version/2.1(beta4)/IE9.js">IE7_PNG_SUFFIX = ".png";</script>
+<!--[if gte IE 9]>
+  <style type="text/css">
+    .gradient { filter: none; }
+  </style>
 <![endif]-->
 
-  <script>
+  
+  <title>IIPMooViewer :: IIPImage High Resolution Ajax Multispectral Image Viewer</title>
 
-    var images = [
-      {
-	"image": "/path/image1.tif",
-	"caption": "Caption 1",
-	"title": "Title 1"
-      },
-      {
-	"image": "/path/image2.tif",
-	"caption": "Caption 2",
-	"title": "Title 2"
-      },
-      {
-        "image": "/path/image3.tif",
-        "caption": "Caption 3",
-        "title": "Title 3"
-      }
-    ];
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/mootools/1.6.0/mootools-core.min.js" integrity="sha512-P6QjhxYLbTLOHQpilU3lsmhwLfgVh/zN5rVzcGbmiTWhMcpkHVk8eqWk2vqvM0Z6OhJfrdbYoTzJtGQYUj8ibw==" crossorigin="anonymous"></script>
+  <script type="text/javascript" src="js/iipmooviewer-2.0-min.js"></script>
 
+<!--[if lt IE 7]>
+  <script src="http://ie7-js.googlecode.com/svn/version/2.1(beta4)/IE7.js">IE7_PNG_SUFFIX = ".png";</script>
+<![endif]-->
 
-    // Create our image gallery and give our list of images
-    var gallery = new Gallery( "gallery", {
-	images: images
-    });
-
-  </script>
-
-  <style>
+  <style type="text/css">
     body{
-      height: 100%;
-      padding: 0;
-      margin: 0;
+	height: 100%;
+	width: 100%;
+	padding: 0;
+	margin: 0;
+    }
+    div#viewer{
+	width: 100%;
+	height: 100%;
+	left: 0%;
+	right: 0px;
+	position: absolute;
     }
   </style>
 
+  <script type="text/javascript">
+
+      // The full image path on the server
+      var server = 'http://localhost/fcgi-bin/iipsrv.fcgi';
+      var images = ['/home/elham/Downloads/PalaisDuLouvre1.tif'];
+
+      // Copyright or information message
+      var credit = '&copy; copyright or information message';
+
+      // Create our viewer object
+      iipmooviewer = new IIPMooViewer( "viewer", {
+        server: server,
+	image: images,
+	credit: credit,
+	scale: 20
+      });
+
+    iipmooviewer.blend( [ ['/home/elham/Downloads/PalaisDuLouvre1.tif','colour'],
+			  ['/home/elham/Downloads/CMU-1.tiff','UV fluorescence'],
+			  ['HD3/HD3_pyr_200_090.tif','X-ray'],
+			  ['HD3/HD3_pyr_300_090.tif','raking light from left'],
+			  ['HD3/HD3_pyr_400_090.tif','raking light from below'],
+			  ['HD3/HD3_pyr_500_090.tif','color - transmitted light'],
+			  ['HD3/HD3_pyr_600_090.tif','infra-red - transmitted light'],
+			  ['HD3/HD3_pyr_700_090.tif','infra-red (900-1700nm)'],
+			  ['HD3/HD3_pyr_800_090.tif','infra-red (900-1200nm)'],
+			  ['HD3/HD3_pyr_900_090.tif','infra-red (1200-1700nm)'],
+			  ['HD3/HD3_pyr_909_090.tif','infra-red (900-2300nm)']
+ 			] );
+
+  </script>
+
  </head>
 
- <body>
-   <div style="width:100%;height:100%;position:absolute" id="gallery"></div>
+ <body style="background:grey;color:white">
+    <!-- Our iipmooviewer div -->
+    <div id="viewer"></div>
  </body>
 
 </html>
