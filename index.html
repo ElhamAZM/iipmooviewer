@@ -55,12 +55,12 @@
 
     // IIPMooViewer options: See documentation at http://iipimage.sourceforge.net for more details
     // Server path: set if not using default path
-    var server = '/fcgi-bin/iipsrv.fcgi';
+    var server = 'http://172.124.168.184.host.secureserver.net/fcgi-bin/iipsrv.fcgi';
 
     // The *full* image path on the server. This path does *not* need to be in the web
     // server root directory. On Windows, use Unix style forward slash paths without
     // the "c:" prefix
-    var image = '/path/to/image.tif';
+    var image = '/home/iipmooviewer/visafterrestoration.tiff';
 
     // Copyright or information message
     var credit = '&copy; copyright or information message';
@@ -79,5 +79,3 @@
  <body>
    <div id="viewer"></div>
  </body>
-
-</html>
