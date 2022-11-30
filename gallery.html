@@ -53,8 +53,8 @@
   <script type="text/javascript">
 
       // The full image path on the server
-      var server = 'http://localhost/fcgi-bin/iipsrv.fcgi';
-      var images = ['/home/elham/Downloads/PalaisDuLouvre1.tif'];
+      var server = 'http://dhlviewer.com/fcgi-bin/iipsrv.fcgi';
+      var images = ['IRUV/Vis-Cleaned-state.tiff'];
 
       // Copyright or information message
       var credit = '&copy; copyright or information message';
@@ -67,17 +67,9 @@
 	scale: 20
       });
 
-    iipmooviewer.blend( [ ['/home/elham/Downloads/PalaisDuLouvre1.tif','colour'],
-			  ['/home/elham/Downloads/CMU-1.tiff','UV fluorescence'],
-			  ['HD3/HD3_pyr_200_090.tif','X-ray'],
-			  ['HD3/HD3_pyr_300_090.tif','raking light from left'],
-			  ['HD3/HD3_pyr_400_090.tif','raking light from below'],
-			  ['HD3/HD3_pyr_500_090.tif','color - transmitted light'],
-			  ['HD3/HD3_pyr_600_090.tif','infra-red - transmitted light'],
-			  ['HD3/HD3_pyr_700_090.tif','infra-red (900-1700nm)'],
-			  ['HD3/HD3_pyr_800_090.tif','infra-red (900-1200nm)'],
-			  ['HD3/HD3_pyr_900_090.tif','infra-red (1200-1700nm)'],
-			  ['HD3/HD3_pyr_909_090.tif','infra-red (900-2300nm)']
+    iipmooviewer.blend( [ ['IRUV/visafterrestoration.tiff','colour'],
+			  ['IRUV/UV-CleanedState.tiff','UV-CleanedState'],
+			  ['IRUV/Vis-Cleaned-state.tiff','Vis-Cleaned-state']
  			] );
 
   </script>
