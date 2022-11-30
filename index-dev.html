@@ -55,7 +55,7 @@
 
       // The full image path on the server
       var server = 'http://localhost/fcgi-bin/iipsrv.fcgi';
-      var images = ['/home/elham/Downloads/new/Vis-Cleaned-state.tiff'];
+      var images = ['IRUV/Vis-Cleaned-state.tiff'];
 
       // Copyright or information message
       var credit = '&copy; copyright or information message';
@@ -68,11 +68,11 @@
 	scale: 20
       });
 
-    iipmooviewer.blend( [ ['/home/elham/Downloads/new/visafterrestoration.tiff','colour'],
-			  ['/home/elham/Downloads/new/UV-CleanedState.tiff','UV-CleanedState'],
-			  ['/home/elham/Downloads/new/Xray.tiff','X-ray'],
-			  ['/home/elham/Downloads/new/Vis-Cleaned-state.tiff','Vis-Cleaned-state'],
-			  ['/home/elham/Downloads/new/IRR-whole.tiff','IRR-whole']
+    iipmooviewer.blend( [ ['IRUV/visafterrestoration.tiff','colour'],
+			  ['IRUV/UV-CleanedState.tiff','UV-CleanedState'],
+			  ['IRUV/Xray.tiff','X-ray'],
+			  ['IRUV/Vis-Cleaned-state.tiff','Vis-Cleaned-state'],
+			  ['IRUV/IRR-whole.tiff','IRR-whole']
  			] );
 
   </script>
