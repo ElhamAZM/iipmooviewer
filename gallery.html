@@ -54,7 +54,7 @@
 
       // The full image path on the server
       var server = 'http://172.124.168.184.host.secureserver.net/fcgi-bin/iipsrv.fcgi';
-      var images = ['IRUV/Vis-Cleaned-state.tiff'];
+      var images = ['/home/ipviewer/IRUV/visafterrestoration.tiff'];
 
       // Copyright or information message
       var credit = '&copy; copyright or information message';
@@ -67,9 +67,8 @@
 	scale: 20
       });
 
-    iipmooviewer.blend( [ ['IRUV/visafterrestoration.tiff','colour'],
-			  ['IRUV/UV-CleanedState.tiff','UV-CleanedState'],
-			  ['IRUV/Vis-Cleaned-state.tiff','Vis-Cleaned-state']
+    iipmooviewer.blend( [ ['/home/ipviewer/IRUV/visafterrestoration.tiff','colour'],
+			  ['/home/ipviewer/IRUV/Vis-Cleaned-state.tiff','Vis-Cleaned-state']
  			] );
 
   </script>
