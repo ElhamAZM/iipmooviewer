@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<!this is the example of van goh(the one that worked) coming from it's demo code from the website, not the github code>
+<html lang="en" >
+
+ <head>
+  <meta charset="utf-8" />
+  <meta name="author" content="Ruven Pillay &lt;ruven@users.sourceforge.netm&gt;" />
+  <meta name="keywords" content="Multispectral Internet Imaging Protocol IIP IIPImage Mootools" />
+  <meta name="description" content="High Resolution Remote Viewing of Multispectral Images" />
+  <meta name="copyright" content="&copy; 2003-2015 Ruven Pillay" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0" />
+  <meta name="apple-mobile-web-app-capable" content="yes" />
+  <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
+  <meta http-equiv="X-UA-Compatible" content="IE=9" />
+
+  <link rel="stylesheet" type="text/css" media="all" href="css/iip.min.css" />
+
+<!--[if lt IE 10]>
+  <link rel="stylesheet" type="text/css" media="all" href="css/ie.min.css" />
+<![endif]-->
+<!--[if gte IE 9]>
+  <style type="text/css">
+    .gradient { filter: none; }
+  </style>
+<![endif]-->
+
+  
+  <title>IIPMooViewer :: IIPImage High Resolution Ajax Multispectral Image Viewer</title>
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/mootools/1.6.0/mootools-core.min.js" integrity="sha512-P6QjhxYLbTLOHQpilU3lsmhwLfgVh/zN5rVzcGbmiTWhMcpkHVk8eqWk2vqvM0Z6OhJfrdbYoTzJtGQYUj8ibw==" crossorigin="anonymous"></script>
+  <script type="text/javascript" src="js/iipmooviewer-2.0-min.js"></script>
+
+<!--[if lt IE 7]>
+  <script src="http://ie7-js.googlecode.com/svn/version/2.1(beta4)/IE7.js">IE7_PNG_SUFFIX = ".png";</script>
+<![endif]-->
+
+  <style type="text/css">
+    body{
+	height: 100%;
+	width: 100%;
+	padding: 0;
+	margin: 0;
+    }
+    div#viewer{
+	width: 100%;
+	height: 100%;
+	left: 0%;
+	right: 0px;
+	position: absolute;
+    }
+  </style>
+
+  <script type="text/javascript">
+
+      // The full image path on the server
+      var server = 'http://172.124.168.184.host.secureserver.net/fcgi-bin/iipsrv.fcgi';
+      var images = ['/home/ipviewer/IRUV/visafterrestoration.tiff'];
+
+      // Copyright or information message
+      var credit = '&copy; copyright or information message';
+
+      // Create our viewer object
+      iipmooviewer = new IIPMooViewer( "viewer", {
+        server: server,
+	image: images,
+	credit: credit,
+	scale: 20
+      });
+
+    iipmooviewer.blend( [ ['/home/ipviewer/IRUV/visafterrestoration.tiff','colour'],
+			  ['/home/ipviewer/IRUV/Vis-Cleaned-state.tiff','Vis-Cleaned-state']
+ 			] );
+
+  </script>
+
+ </head>
+
+ <body style="background:grey;color:white">
+    <!-- Our iipmooviewer div -->
+    <div id="viewer"></div>
+ </body>
+
+</html>
